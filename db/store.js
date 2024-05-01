@@ -15,7 +15,7 @@ class Store {
   write(note) {
     return writeFileAsync('db/db.json', JSON.stringify(note));
   }
-
+  //Gather the notes from the front end
   getNotes() {
     return this.read().then((notes) => {
       let parsedNotes;
@@ -31,7 +31,7 @@ class Store {
       return parsedNotes;
     });
   }
-
+  //Add notes
   addNote(note) {
     const { title, text } = note;
 
@@ -48,7 +48,7 @@ class Store {
       .then((updatedNotes) => this.write(updatedNotes))
       .then(() => newNote);
   }
-
+  //Delete notes
   removeNote(id) {
     // Get all notes, remove the note with the given id, write the filtered notes
     return this.getNotes()
