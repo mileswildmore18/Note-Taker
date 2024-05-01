@@ -22,6 +22,7 @@ class Store {
 
       // If notes isn't an array or can't be turned into one, send back a new empty array
       try {
+        //Grab multiple arrays and make it into one
         parsedNotes = [].concat(JSON.parse(notes));
       } catch (err) {
         parsedNotes = [];
